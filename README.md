@@ -1,6 +1,6 @@
 # Shiny Tutorial, updated for 2020
 
-## Required ackages:
+## Required packages:
 * shiny
 * tidyverse
 * DT
