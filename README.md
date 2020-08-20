@@ -6,9 +6,8 @@
 * DT
 * plotly
 * shinythemes
-* rsconnect
 
 
 ## Optional packages:
 * shinyLP
-
+* rsconnect (only required if you intend to launch to shinyapps.io)
