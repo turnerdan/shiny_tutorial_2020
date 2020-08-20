@@ -6,6 +6,7 @@ author: Dan Turner (dturner@u.northwestern.edu)
 ## Welcome to my tutorial on Shiny, a popular package for creating web applications that run on R code!
 
 Because of the structure of Shiny, I found it better to show off its capabilities using R Notebooks like this one. You will see that text (like this) can be set inline with code chunks...
+
 ```{r}
 # ...like this.
 ```
@@ -47,7 +48,7 @@ This data can answer this question, and we can build an app to explore it using 
 
 The following code chunk is densely commented to show all the steps line-by-line for how this app works, but the short version is this: we feed the user interface data from `R` in response to the user's input.
 
-1. The user inputs their choice of conference (a group of schools that competes) with a dropdown menu, then shiny passes that choice to the shiny server.
+1. The user inputs their choice of conference (a group of schools that competes) with a dropdown menu, then `shiny` passes that choice to the server...
 2. The server takes the user input and returns an output. In this case, the input subsets a part of the dataset, and the server returns a plot.
 
 Scripts that take an input and return an output interactively are called 'reactive', and it involves a special trick of shiny's. Look for the curly brackets -- shiny uses these to define reactive portions of the code.
@@ -110,11 +111,11 @@ shinyApp(ui = ui, server = server)
 * a server that handles the user input to render the data for the UI
 * a deployment command that links the UI and server
 
-####################
-## SHINY WORKFLOW ##
-####################
 
-The general workflow for shiny creation is:
+
+# SHINY WORKFLOW
+
+The general work flow for shiny creation is:
 
 1. Build the skeleton of the UI ("What are people going to see and input?")
 2. Build the skeleton of the server ("What are the building blocks of the output?")
@@ -124,9 +125,8 @@ The general workflow for shiny creation is:
 Let's talk about each piece in turn, with an emphasis on parts 1-3. 
 
 
-##############
-## SHINY UI ##
-##############
+
+# SHINY UI
 
 Shiny allows users to enter many types of data, which means it is possible for us to manipulate our data in many ways. In fact, shiny's ability to manage data for the user is probably its best asset. Find a 'gallery' of input UI's here: https://shiny.rstudio.com/gallery/widget-gallery.html
 
@@ -184,16 +184,17 @@ ui <- fluidPage(
 shinyApp(ui = ui, server = server) # launch it
 ```
 
-##################
-## SHINY SERVER ##
-##################
+
+
+
+# SHINY SERVER
 
 To display your data in the UI, two things need to happen:
 
 1. The data has to be rendered             e.g. `renderXYZ()`
 2. The rendered data has to be output      e.g. `XYZoutput()`
 
-Here, 'output' means to display the data in whatever form it may be. This two-step process is equally true for text (`renderText()` --> `textOutput()`), tables (`renderTable()` -> `tableOutput()`), and other output types you will see in the next section.
+Here, 'output' means to display the data in whatever form it may be. This two-step process holds for text (`renderText()` --> `textOutput()`), tables (`renderTable()` -> `tableOutput()`), and other output types you will see in the next section.
 
 Recall that the server has two arguments: input and output. User input coming into shiny from the UI is labeled `input$inputId`, where the inputId is the argument of inputId in the input function (ala numericInput(inputId = "this")). This is very similar to the system for outputs. Everything you render is assigned to `output$outputId`. 
 
@@ -212,17 +213,18 @@ In the next code chunk, you will see a variety of example output recipes.
 # A bare bones UI with no user input
 ui <- fluidPage(
   
-  # plotOutput displays a ggplot
   HTML("<h2>Normal Plot</h2>"), # You can render custom HTML like this
   # ^^^ is the same as h2(
   # Most common HTML tags are conveniently coded as R functions for shiny
+  
+  # plotOutput displays a ggplot
   plotOutput("the.plot"),
   
   # Now for an interactive table
   h2("Interactive Plot(ly)"),
   plotly::plotlyOutput("the.plotly"),
 
-  # Standard tables
+  # Standard tables (static)
   h2("Normal Table"),
   tableOutput("the.table"),
   

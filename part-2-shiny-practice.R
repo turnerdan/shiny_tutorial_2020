@@ -3,7 +3,7 @@
 
 # Practice section
 
-## Modify the code below to dynamically plot the duration of the fight song for each school within each conference as a pie chart. Each page will have 1 conference, selectable by dropdown, and each school will be 1 slice of the pie.
+## Modify the code below to dynamically plot the duration of the fight song for each school within each conference as a pie chart. Each page will have 1 conference, selected by dropdown menu, and each school will be 1 slice of the pie.
 
 
 

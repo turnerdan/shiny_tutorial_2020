@@ -23,7 +23,7 @@ null_server <- function(input, output) { } # Empty server to test different UIs 
 
 # SHINY LAYOUTS
 
-## Our goalså
+## Our goals
 All of the shiny apps we have made so far consist of vertically stacked widgets in a single column. This type of layout works fine for some purposes, but chances are that you want more control over the visual design of the app.
 
 Luckily, since shiny apps are just fancy HTML pages, and shiny allows you to pass custom HTML to the page building algorithm, there is no limit to the design options you have. It's just a matter of what you want to do, your skills, and shiny's widget selection.
@@ -173,7 +173,8 @@ shinyApp(ui = ui, server = null_server)
 To sum up, `shiny` arranges everything--text, tables, plots, inputs, pictures, etc.--in rows and columns, the width of which can be fluid or fixed. This means you can lay out your elements on a grid with some confidence that your users will have similar experiences regardless of what kind of device they are using.
 
 
-# TABBED LAYOUT
+
+## TABBED LAYOUT
 
 Another way to add dimension to your app is to use tabs to layer panels on top of one another. I think this is a great feature for people that want to show a visualization of their data, but also allow users to dive into the raw numbers. We can do this by using `tabPanel()`, which wraps elements into a tab which can sit under other tabs, allowing the user to switch between views.
 
@@ -216,8 +217,6 @@ ui <- fluidPage( # Let's have a fluidPage, because we want our fluid elements to
 shinyApp(ui = ui, server = null_server)
 
 ```
-
-I hope these examples show you what kind of UI designs are possible in shiny.
 
 All of the placeholders (`submitButton()`s) here could be text, pictures, tables, plots, and so on. The next section is about styling elements in the layouts, but before we can admire the different looks we can get using `shinythemes`, we should build a working example.
 
@@ -401,7 +400,7 @@ When you have rsconnect configured, you just need to use deployApp. It will take
 ## ADD A LANDING PAGE ##
 ########################
 
-I will end with a last tip on deploying your shiny app. Often, you will want to have information about the application, like a guide on how to use it, or where to find more information about the work being displayed. I recommend using the shinyLP package for this. you can see a working example with the one-liner below.
+I will end with a last tip on deploying your shiny app. Often, you will want to have information about the application, like a guide on how to use it, or where to find more information about the work being displayed. I recommend using the shinyLP package for this. You can see a working example with the one-liner below.
 
 ```{r message=FALSE, warning=FALSE}
 shinyLP::runExample()
